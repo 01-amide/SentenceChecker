@@ -1,0 +1,37 @@
+ALGORITHM sentenceCheck
+VAR
+    sent:STRING
+    char:INTEGER:=0
+    word:INTEGER:=0
+    vowel:INTEGER:=0
+BEGIN
+    read(sent)
+    WHILE (sent[len] != ".") DO
+
+        IF (sent[len] = " ") THEN
+            word = word + 1
+        END_IF
+
+        SWITCH (sent[len]) DO
+            'a' :
+            'e' :
+            'i' :
+            'o' :
+            'u' :
+            'A' :
+            'E' :
+            'I' :
+            'O' :
+            'U' :
+                vowel = vowel + 1
+        END_SWITCH
+        char = char + 1
+
+    END_WHILE
+    
+    word = word + 1
+    char = char + 1
+    write(len) 
+    write(word)
+    write(vowel)
+END
