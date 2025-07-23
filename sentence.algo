@@ -1,17 +1,22 @@
+// ALGORITHM TO COUNT CHARACTERS, WORDS, AND VOWELS IN A SENTENCE
 ALGORITHM sentenceCheck
 VAR
-    sent:STRING
-    char:INTEGER:=0
-    word:INTEGER:=0
-    vowel:INTEGER:=0
+    sent: STRING             // Input sentence
+    char: INTEGER := 0       // Counter for number of characters
+    word: INTEGER := 0       // Counter for number of words (space + 1)
+    vowel: INTEGER := 0      // Counter for number of vowels
 BEGIN
-    read(sent)
+    read(sent)               // Read input sentence from user
+
+    // Loop through the sentence until the period (.) is found
     WHILE (sent[len] != ".") DO
 
+        // Count spaces to determine word count
         IF (sent[len] = " ") THEN
             word = word + 1
         END_IF
 
+        // Check if current character is a vowel (both lowercase and uppercase)
         SWITCH (sent[len]) DO
             'a' :
             'e' :
@@ -23,15 +28,21 @@ BEGIN
             'I' :
             'O' :
             'U' :
-                vowel = vowel + 1
+                vowel = vowel + 1     // If vowel, increase vowel count
         END_SWITCH
-        char = char + 1
+
+        char = char + 1              // Count current character
 
     END_WHILE
-    
+
+    // Add 1 to word count to account for the last word (since it's followed by a period, not a space)
     word = word + 1
+
+    // Add 1 to character count to include the period at the end
     char = char + 1
-    write(len) 
-    write(word)
-    write(vowel)
+
+    // Output the results
+    write(char)      // Total number of characters including period
+    write(word)      // Total number of words
+    write(vowel)     // Total number of vowels
 END
